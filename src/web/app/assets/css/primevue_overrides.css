@@ -1,0 +1,17 @@
+
+@layer components {
+    .p-card{
+        @apply shadow-none border border-slate-300 dark:border-schol-muted-800;
+    }
+    .p-inputtext{
+        @apply inline-block max-w-full transition-all;
+    }
+
+    .p-tabpanels{
+        @apply bg-slate-100 dark:bg-slate-950
+    }
+}
+
+.cv-card {
+    @apply p-5 shadow-none bg-white dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-schol-muted-800;
+}

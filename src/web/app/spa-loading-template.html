@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdoNuxt Loader</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            width:100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: inherit;
+        }
+        .loader{
+            width: 25px !important;
+            height:25px !important;
+            border-radius: 50%;
+            border: 4px solid gold;
+            border-right: 4px solid transparent;
+            animation: roll 1s linear infinite;
+        }
+
+        @keyframes roll {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .con1{
+            /* padding-left:10px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .loading{
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .logo-con{
+           width: 180px !important;
+        }
+        .img{
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="con1">
+        <div class="logo-con">
+            <img alt="CrownVote" class="img" src="/loader.png" />
+        </div>
+        <div class="loading">
+            <div class="loader"></div>
+            <div>loading...</div>
+        </div>
+    </div>  
+</body>
+</html>

@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+@import "tailwindcss-primeui";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import 'primeicons/primeicons.css';
+
+@theme {
+  --font-sans: Inter, system-ui, sans-serif;
+  --color-schol-muted-50: rgb(244 248 252);
+  --color-schol-muted-100: rgb(235 242 250);
+  --color-schol-muted-200: rgb(217 228 243);
+  --color-schol-muted-300: rgb(187 207 232);
+  --color-schol-muted-400: rgb(148 175 210);
+  --color-schol-muted-500: rgb(110 145 185);
+  --color-schol-muted-600: rgb(82 110 150);
+  --color-schol-muted-700: rgb(62 85 120);
+  --color-schol-muted-800: rgb(45 60 85);
+  --color-schol-muted-900: rgb(28 40 60);
+  --color-schol-muted-950: rgb(15 22 35);
+}
+
+@media screen and (max-width: 470px) {
+  .p-toast {
+    width: 90vw !important;
+  }
+}
+
+body{
+    @apply bg-surface-100 dark:bg-surface-950/90 text-slate-950/95 dark:text-slate-200
+}
+
+.bg-secondary{
+  @apply bg-blue-600 dark:bg-blue-700
+}
+
+.btn-secondary{
+  @apply bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors
+}
+
+.text-schol-muted {
+  @apply text-schol-muted-600 dark:text-schol-muted-400
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+/* .material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+} */
+ 
+@import './utils.css';
+@import './primevue_overrides.css';

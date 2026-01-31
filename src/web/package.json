@@ -1,0 +1,44 @@
+{
+  "name": "crownvote",
+  "description": "Your Evoting Plug",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@paystack/inline-js": "^2.22.7",
+    "@pinia/nuxt": "0.11.3",
+    "@primeuix/themes": "^2.0.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "@vueuse/nuxt": "14.1.0",
+    "browser-image-compression": "^2.0.2",
+    "chart.js": "^4.5.1",
+    "dayjs": "^1.11.19",
+    "lara-fetch": "^1.0.5",
+    "luxon": "^3.7.2",
+    "material-symbols": "^0.40.2",
+    "nuxt": "^4.2.2",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.5.4",
+    "tailwindcss": "^4.1.18",
+    "tailwindcss-primeui": "^0.6.1",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/pwa": "^3.3.5",
+    "@primevue/nuxt-module": "^4.5.4",
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^25.0.6",
+    "@types/paystack__inline-js": "^1.0.2",
+    "typescript": "^5.9.3"
+  }
+}

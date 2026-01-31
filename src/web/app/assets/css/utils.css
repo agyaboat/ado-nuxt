@@ -1,0 +1,361 @@
+/* bgs */
+
+.my-bg-slate {
+  @apply bg-slate-800/10 dark:bg-slate-400/10;
+}
+
+.my-bg-gray {
+  @apply bg-gray-800/10 dark:bg-gray-400/10;
+}
+
+.my-bg-zinc {
+  @apply bg-zinc-800/10 dark:bg-zinc-400/10;
+}
+
+.my-bg-neutral {
+  @apply bg-neutral-800/10 dark:bg-neutral-400/10;
+}
+
+.my-bg-stone {
+  @apply bg-stone-800/10 dark:bg-stone-400/10;
+}
+
+.my-bg-red {
+  @apply bg-red-800/10 dark:bg-red-400/10;
+}
+
+.my-bg-orange {
+  @apply bg-orange-800/10 dark:bg-orange-400/10;
+}
+
+.my-bg-amber {
+  @apply bg-amber-500/20 dark:bg-amber-400/10;
+}
+
+.my-bg-yellow {
+  @apply bg-yellow-500/20 dark:bg-yellow-400/10;
+}
+
+.my-bg-lime {
+  @apply bg-lime-500/20 dark:bg-lime-400/10;
+}
+
+.my-bg-green {
+  @apply bg-green-500/20 dark:bg-green-400/10;
+}
+
+.my-bg-emerald {
+  @apply bg-emerald-500/20 dark:bg-emerald-400/10;
+}
+
+.my-bg-teal {
+  @apply bg-teal-500/20 dark:bg-teal-400/10;
+}
+
+.my-bg-cyan {
+  @apply bg-cyan-500/20 dark:bg-cyan-400/10;
+}
+
+.my-bg-sky {
+  @apply bg-sky-500/20 dark:bg-sky-400/10;
+}
+
+.my-bg-blue {
+  @apply bg-blue-500/20 dark:bg-blue-400/10;
+}
+
+.my-bg-indigo {
+  @apply bg-indigo-500/20 dark:bg-indigo-400/10;
+}
+
+.my-bg-violet {
+  @apply bg-violet-500/20 dark:bg-violet-400/10;
+}
+
+.my-bg-purple {
+  @apply bg-purple-500/20 dark:bg-purple-400/10;
+}
+
+.my-bg-fuchsia {
+  @apply bg-fuchsia-500/20 dark:bg-fuchsia-400/10;
+}
+
+.my-bg-pink {
+  @apply bg-pink-500/20 dark:bg-pink-400/10;
+}
+
+.my-bg-rose {
+  @apply bg-rose-500/20 dark:bg-rose-400/10;
+}
+
+
+/* texts */
+
+.my-text-slate {
+  @apply text-slate-800 dark:text-slate-300;
+}
+
+.my-text-gray {
+  @apply text-gray-800 dark:text-gray-300;
+}
+
+.my-text-zinc {
+  @apply text-zinc-800 dark:text-zinc-300;
+}
+
+.my-text-neutral {
+  @apply text-neutral-800 dark:text-neutral-300;
+}
+
+.my-text-stone {
+  @apply text-stone-800 dark:text-stone-300;
+}
+
+.my-text-red {
+  @apply text-red-800 dark:text-red-300;
+}
+
+.my-text-orange {
+  @apply text-orange-800 dark:text-orange-300;
+}
+
+.my-text-amber {
+  @apply text-amber-700 dark:text-amber-300;
+}
+
+.my-text-yellow {
+  @apply text-yellow-800 dark:text-yellow-300;
+}
+
+.my-text-lime {
+  @apply text-lime-800 dark:text-lime-300;
+}
+
+.my-text-green {
+  @apply text-green-800 dark:text-green-300;
+}
+
+.my-text-emerald {
+  @apply text-emerald-800 dark:text-emerald-300;
+}
+
+.my-text-teal {
+  @apply text-teal-800 dark:text-teal-300;
+}
+
+.my-text-cyan {
+  @apply text-cyan-800 dark:text-cyan-300;
+}
+
+.my-text-sky {
+  @apply text-sky-800 dark:text-sky-300;
+}
+
+.my-text-blue {
+  @apply text-blue-800 dark:text-blue-300;
+}
+
+.my-text-indigo {
+  @apply text-indigo-800 dark:text-indigo-300;
+}
+
+.my-text-violet {
+  @apply text-violet-800 dark:text-violet-300;
+}
+
+.my-text-purple {
+  @apply text-purple-800 dark:text-purple-300;
+}
+
+.my-text-fuchsia {
+  @apply text-fuchsia-800 dark:text-fuchsia-300;
+}
+
+.my-text-pink {
+  @apply text-pink-800 dark:text-pink-300;
+}
+
+.my-text-rose {
+  @apply text-rose-800 dark:text-rose-300;
+}
+
+
+/* borders */
+
+.my-border-slate {
+  @apply border-slate-800/30 dark:border-slate-400/30;
+}
+
+.my-border-gray {
+  @apply border-gray-800/30 dark:border-gray-400/30;
+}
+
+.my-border-zinc {
+  @apply border-zinc-800/30 dark:border-zinc-400/30;
+}
+
+.my-border-neutral {
+  @apply border-neutral-800/30 dark:border-neutral-400/30;
+}
+
+.my-border-stone {
+  @apply border-stone-800/30 dark:border-stone-400/30;
+}
+
+.my-border-red {
+  @apply border-red-800/30 dark:border-red-400/30;
+}
+
+.my-border-orange {
+  @apply border-orange-800/30 dark:border-orange-400/30;
+}
+
+.my-border-amber {
+  @apply border-amber-800/30 dark:border-amber-400/30;
+}
+
+.my-border-yellow {
+  @apply border-yellow-800/30 dark:border-yellow-400/30;
+}
+
+.my-border-lime {
+  @apply border-lime-800/30 dark:border-lime-400/30;
+}
+
+.my-border-green {
+  @apply border-green-800/30 dark:border-green-400/30;
+}
+
+.my-border-emerald {
+  @apply border-emerald-800/30 dark:border-emerald-400/30;
+}
+
+.my-border-teal {
+  @apply border-teal-800/30 dark:border-teal-400/30;
+}
+
+.my-border-cyan {
+  @apply border-cyan-800/30 dark:border-cyan-400/30;
+}
+
+.my-border-sky {
+  @apply border-sky-800/30 dark:border-sky-400/30;
+}
+
+.my-border-blue {
+  @apply border-blue-800/30 dark:border-blue-400/30;
+}
+
+.my-border-indigo {
+  @apply border-indigo-800/30 dark:border-indigo-400/30;
+}
+
+.my-border-violet {
+  @apply border-violet-800/30 dark:border-violet-400/30;
+}
+
+.my-border-purple {
+  @apply border-purple-800/30 dark:border-purple-400/30;
+}
+
+.my-border-fuchsia {
+  @apply border-fuchsia-800/30 dark:border-fuchsia-400/30;
+}
+
+.my-border-pink {
+  @apply border-pink-800/30 dark:border-pink-400/30;
+}
+
+.my-border-rose {
+  @apply border-rose-800/30 dark:border-rose-400/30;
+}
+
+/* rings */
+
+.ring-cv-slate {
+  @apply ring-slate-800/30 dark:ring-slate-400/30;
+}
+
+.ring-cv-gray {
+  @apply ring-gray-800/30 dark:ring-gray-400/30;
+}
+
+.ring-cv-zinc {
+  @apply ring-zinc-800/30 dark:ring-zinc-400/30;
+}
+
+.ring-cv-neutral {
+  @apply ring-neutral-800/30 dark:ring-neutral-400/30;
+}
+
+.ring-cv-stone {
+  @apply ring-stone-800/30 dark:ring-stone-400/30;
+}
+
+.ring-cv-red {
+  @apply ring-red-800/30 dark:ring-red-400/30;
+}
+
+.ring-cv-orange {
+  @apply ring-orange-800/30 dark:ring-orange-400/30;
+}
+
+.ring-cv-amber {
+  @apply ring-amber-800/30 dark:ring-amber-400/30;
+}
+
+.ring-cv-yellow {
+  @apply ring-yellow-800/30 dark:ring-yellow-400/30;
+}
+
+.ring-cv-lime {
+  @apply ring-lime-800/30 dark:ring-lime-400/30;
+}
+
+.ring-cv-green {
+  @apply ring-green-800/30 dark:ring-green-400/30;
+}
+
+.ring-cv-emerald {
+  @apply ring-emerald-800/30 dark:ring-emerald-400/30;
+}
+
+.ring-cv-teal {
+  @apply ring-teal-800/30 dark:ring-teal-400/30;
+}
+
+.ring-cv-cyan {
+  @apply ring-cyan-800/30 dark:ring-cyan-400/30;
+}
+
+.ring-cv-sky {
+  @apply ring-sky-800/30 dark:ring-sky-400/30;
+}
+
+.ring-cv-blue {
+  @apply ring-blue-800/30 dark:ring-blue-400/30;
+}
+
+.ring-cv-indigo {
+  @apply ring-indigo-800/30 dark:ring-indigo-400/30;
+}
+
+.ring-cv-violet {
+  @apply ring-violet-800/30 dark:ring-violet-400/30;
+}
+
+.ring-cv-purple {
+  @apply ring-purple-800/30 dark:ring-purple-400/30;
+}
+
+.ring-cv-fuchsia {
+  @apply ring-fuchsia-800/30 dark:ring-fuchsia-400/30;
+}
+
+.ring-cv-pink {
+  @apply ring-pink-800/30 dark:ring-pink-400/30;
+}
+
+.ring-cv-rose {
+  @apply ring-rose-800/30 dark:ring-rose-400/30;
+}
