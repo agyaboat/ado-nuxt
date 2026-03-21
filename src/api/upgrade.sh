@@ -1,0 +1,1 @@
+pnpm i $(node -e "const pkg = require('./package.json'); const deps = {...pkg.dependencies, ...pkg.devDependencies}; console.log(Object.keys(deps).filter(k => k.startsWith('@adonisjs/') || k === '@vinejs/vine' || k === 'edge.js' || k === '@japa/plugin-adonisjs' || k === 'vite' || k === 'argon2').map(k => k + '@latest').join(' '))") --force
