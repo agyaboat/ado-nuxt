@@ -15,7 +15,7 @@ export function webRoutesEntry() {
 
       const response = await openai.responses.create({
         model: 'gpt-5-nano',
-        input: 'Tell me all you know about CrownVote evoting platform with link crownvote.com',
+        input: 'What is stomata?',
         store: true,
       })
 

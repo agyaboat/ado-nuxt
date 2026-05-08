@@ -57,7 +57,7 @@
             <div v-if="brand !== 'off'" class="flex justify-between items-center">
               <NuxtLink to="/" class="flex gap-1 items-center font-bold text-xl">
                 <span class="material-symbols-outlined text-amber-500 dark:text-amber-300 font-black! text-3xl!">crown</span>
-                <div class="hidden md:block">{{useTruncate(brand) ?? 'AdoNuxt'}}</div>
+                <div class="hidden md:block">{{useTruncate(brand) ?? APP_NAME}}</div>
               </NuxtLink>
             </div>
           </slot>
@@ -93,7 +93,7 @@
           <CVCard class="shadow-none rounded-none">
             <div class="flex justify-between items-center">
               <slot name="brand">
-                <div v-if="brand !== 'off'" class="font-bold text-xl">{{useTruncate(brand)??'CrownVote'}}</div>
+                <div v-if="brand !== 'off'" class="font-bold text-xl">{{useTruncate(brand)?? APP_NAME}}</div>
               </slot>
               <div>
                 <Button icon="pi pi-bars" size="small" variant="outlined" severity="contrast" class="lg:hidden" :pt="{root:{class: 'py-1'}}" @click.stop="toggleSidebar" />

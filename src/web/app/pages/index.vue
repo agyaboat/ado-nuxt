@@ -1,23 +1,26 @@
 <script setup lang="ts">
   // const { isDark } = useColorMode(true)
-  import io from 'socket.io-client'
-  const socket = io('http://localhost:8000')
-  socket.on('connect', () => {
-    console.log('Connected to server')
-  })
-  socket.on('welcome', (message) => {
-    alert('Received welcome message: ' + message)
-    socket.emit('message', 'Hello from the client!')
-  })
+  // import io from 'socket.io-client'
+  // const socket = io('http://localhost:8000')
+  // socket.on('connect', () => {
+  //   console.log('Connected to server')
+  // })
+  // socket.on('welcome', (message) => {
+  //   alert('Received welcome message: ' + message)
+  //   socket.emit('message', 'Hello from the client!')
+  // })
 
-  socket.on('ping', () => {
-    console.log('Received ping from server')
-    socket.emit('pong')
+  // socket.on('ping', () => {
+  //   console.log('Received ping from server')
+  //   socket.emit('pong')
+  // })
+  definePageMeta({
+    name: 'home'
   })
 </script>
 
 <template>
-  <div>
+  <div class="max-w-5xl mx-auto p-3 py-8">
     Welcome to AdoNuxt!
   </div>
 </template>

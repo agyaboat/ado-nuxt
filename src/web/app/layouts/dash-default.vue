@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import type { Menu } from '~/types/general';
+interface Menu{
+  label: string
+  to: Record<string, any>,
+  icon?: string
+  iconType?: string
+}
+
 export type iconType = 'pi'|'material'
 
 const {user} = storeToRefs(useUserStore())
@@ -25,7 +31,7 @@ watch(()=>route.fullPath, (v)=>{
   <LayoutBase color-mode brand="AdoNuxt" user>
     <template #header>
       <div class="flex justify-end gap-2 items-center w-full">
-        <OverlayBadge value="" severity="warn" size="small">
+        <OverlayBadge v-if="false" value="" severity="warn" size="small">
           <Button rounded size="small" variant="text" severity="contrast">
             <template #icon>
               <span class="cursor-pointer material-symbols-outlined">notifications</span>
