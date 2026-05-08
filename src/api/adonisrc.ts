@@ -1,5 +1,6 @@
 import { defineConfig } from '@adonisjs/core/app'
 import { indexEntities } from '@adonisjs/core'
+import { indexPolicies } from '@adonisjs/bouncer'
 
 export default defineConfig({
   /*
@@ -31,6 +32,7 @@ export default defineConfig({
     () => import('@adonisjs/lucid/commands'),
     () => import('@adonisjs/cache/commands'),
     () => import('@adonisjs/mail/commands'),
+    () => import('@adonisjs/bouncer/commands')
   ],
 
   /*
@@ -61,6 +63,8 @@ export default defineConfig({
     () => import('@adonisjs/cache/cache_provider'),
     () => import('@adonisjs/drive/drive_provider'),
     () => import('@adonisjs/mail/mail_provider'),
+    () => import('@adonisjs/ally/ally_provider'),
+    () => import('@adonisjs/bouncer/bouncer_provider')
   ],
 
   /*
@@ -71,7 +75,7 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [() => import('#start/routes'), () => import('#start/kernel')],
+  preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/socket'), () => import('#start/api_routes')],
 
   /*
   |--------------------------------------------------------------------------
@@ -111,7 +115,7 @@ export default defineConfig({
 
   // assetsBundler: false, .. removed
   hooks: {
-    init: [indexEntities()],
+    init: [indexEntities(), indexPolicies()],
     buildStarting: [() => import('@adonisjs/vite/build_hook')],
   },
 

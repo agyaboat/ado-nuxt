@@ -16,7 +16,7 @@ export default class AuthController {
     if (!user) {
       return response.abort({ message: 'Invalid credentials' })
     }
-    await auth.use('web').login(user)
+    await auth.use('web').login(user, true) // true for remember me
     return response.ok({ message: 'Login successful', user })
   }
 

@@ -7,5 +7,12 @@ export default defineConfig({
     legacy: drivers.legacy({
       keys: [env.get('APP_KEY')],
     }),
+    /**
+     * AES-256-GCM: Industry-standard authenticated encryption.
+     */
+    gcm: drivers.aes256gcm({
+      id: 'gcm',
+      keys: [env.get('APP_KEY')],
+    }),
   },
 })
