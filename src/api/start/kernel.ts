@@ -48,8 +48,6 @@ router.use([
  * the routes or the routes group.
  */
 export const middleware = router.named({
-  feesManagerAccess: () => import('#middleware/fees_manager_access_middleware'),
-  // access: () => import('#middleware/fees_manager/access_middleware'),
   guest: () => import('#middleware/guest_middleware'),
   auth: () => import('#middleware/auth_middleware'),
 })

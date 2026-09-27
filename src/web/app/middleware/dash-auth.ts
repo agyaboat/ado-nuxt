@@ -64,7 +64,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
 })
 
 export const fetchAuthUser = async () => {
-  const response = await useAdoFetch().get('/auth/v2/user')
+  const response = await useAdoFetch().get('/auth/user')
 
   if (response.status === 401) {
     return 401

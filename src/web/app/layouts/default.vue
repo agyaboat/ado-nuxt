@@ -1,7 +1,11 @@
+```vue
 <template>
   <GridBg2 />
 
-  <div class="relative">
+  <div class="relative flex min-h-screen flex-col">
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
     <CVCard
       class="sticky top-0 z-99 rounded-none border-b border-surface-200 bg-surface-0/80 shadow-none backdrop-blur-xl! dark:border-surface-800 dark:bg-surface-950/80 lg:shadow-none"
     >
@@ -13,13 +17,6 @@
               to="/"
               class="group flex w-fit items-center gap-2.5"
             >
-              <span
-                class="material-symbols-outlined text-amber-500 transition-transform duration-300 group-hover:-rotate-6 dark:text-amber-300"
-                style="font-size: 30px; font-variation-settings: 'FILL' 1, 'wght' 700;"
-              >
-                school
-              </span>
-
               <span
                 class="hidden text-xl font-bold tracking-tight text-surface-900 dark:text-surface-0 md:block"
               >
@@ -33,16 +30,6 @@
 
         <!-- ACTIONS -->
         <div class="flex items-center gap-2">
-          <!-- <Button
-            label="Sign in"
-            variant="text"
-            severity="secondary"
-            size="small"
-            as="router-link"
-            to="/login"
-            class="hidden sm:inline-flex"
-          /> -->
-
           <Button
             label="Get started"
             icon="pi pi-arrow-right"
@@ -57,11 +44,20 @@
       </div>
     </CVCard>
 
-    <!-- PAGE -->
-    <div>
-      <slot />
-    </div>
+    <!-- =====================================================
+         PAGE CONTENT
 
+         flex-1 pushes the footer to the bottom when the
+         page content is shorter than the viewport.
+         ===================================================== -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
     <DefaultFooter />
   </div>
 </template>
+```

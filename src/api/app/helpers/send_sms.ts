@@ -16,7 +16,7 @@ export async function sendSms(phoneNumber: string, message: string): Promise<Sen
       'api-key': apiKey,
     },
     body: JSON.stringify({
-      sender: 'ScholarSaas',
+      sender: 'Devapx',
       message,
       recipients: [phoneNumber],
     }),
@@ -25,6 +25,7 @@ export async function sendSms(phoneNumber: string, message: string): Promise<Sen
   const data = (await response.json()) as SendSmsResponse
 
   if (!response.ok) {
+    console.log(data)
     throw new Error(data.message || `Arkesel SMS request failed with status ${response.status}`)
   }
 

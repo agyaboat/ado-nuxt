@@ -55,7 +55,7 @@ const login = async () => {
   loading.value = true
 
   try {
-    const response = await useAdoFetch().post('/auth/v2/signin', {
+    const response = await useAdoFetch().post('/auth/signin', {
       body: JSON.stringify({
         phone: `233${form.phone}`,
       }),
@@ -95,7 +95,7 @@ const verifyOtp = async () => {
   verifying.value = true
 
   try {
-    const response = await useAdoFetch().post('/auth/v2/verify-otp', {
+    const response = await useAdoFetch().post('/auth/verify-otp', {
       body: JSON.stringify({
         otp: otp.value,
       }),
@@ -187,7 +187,7 @@ const verifyOtp = async () => {
       />
 
       <div class="text-center text-sm text-surface-500">
-        New to ScholarSaaS?
+        New?
         <span class="text-primary">Start here too</span>
       </div>
     </form>

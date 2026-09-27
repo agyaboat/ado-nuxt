@@ -1,1 +1,1 @@
-export const APP_NAME='ScholarSaas'
+export const APP_NAME='AdoNuxt'

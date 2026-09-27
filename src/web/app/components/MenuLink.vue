@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { NuxtLinkProps } from '#app';
+import type { NuxtLinkProps } from '#app'
 
-
-// import iconType  from '~/layouts/default.vue'
+type IconType = 'pi' | 'material'
 
 defineProps<
   NuxtLinkProps & {
     icon?: string
-    iconType?: any
+    iconType?: IconType
     badge?: string | number
   }
 >()
@@ -17,71 +16,78 @@ defineProps<
   <NuxtLink
     :to="to"
     custom
-    v-slot="{ navigate, isActive, isExactActive }"
+    v-slot="{ navigate, isExactActive }"
   >
     <a
+      class="
+        group relative flex min-h-[42px] w-full
+        items-center gap-3
+        rounded-lg px-3
+        text-[13px] font-medium
+        no-underline
+        transition-colors duration-150
+        cursor-pointer
+      "
+      :class="
+        isExactActive
+          ? 'bg-slate-100 text-slate-950 dark:bg-slate-800 dark:text-white'
+          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+      "
       @click="navigate"
-      class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-200
-             text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100
-             hover:bg-gray-100 dark:hover:bg-slate-800 relative group cursor-pointer"
-      :class="isExactActive
-        ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold'
-        : ''"
     >
-
-      <!-- Accent bar (always rendered) -->
-      <div
-        class="absolute left-0 top-0 bottom-0 w-1 rounded-r transition-all"
-        :class="isExactActive
-          ? 'bg-emerald-600 dark:bg-emerald-400 opacity-100'
-          : 'opacity-0'"
+      <!-- Active indicator -->
+      <span
+        class="
+          absolute inset-y-0 left-0 w-1 rounded-r-full
+          bg-emerald-500 dark:bg-emerald-400
+        "
+        :class="isExactActive ? 'opacity-100' : 'opacity-0'"
       />
 
-      <!-- Icon slot (stable wrapper) -->
+      <!-- Icon -->
       <span
-        class="shrink-0 text-lg flex items-center"
-        :class="isExactActive
-          ? 'text-emerald-600 dark:text-emerald-400'
-          : 'text-gray-500 dark:text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400'"
+        class="
+          flex size-5 shrink-0
+          items-center justify-center
+          text-[19px]
+        "
+        :class="
+          isExactActive
+            ? 'text-emerald-600 dark:text-emerald-400'
+            : 'text-slate-500 group-hover:text-slate-700 dark:text-slate-500 dark:group-hover:text-slate-300'
+        "
       >
-        <span class="icon-slot flex">
-          <!-- <ClientOnly> -->
-            <span
-              v-if="iconType === 'material'"
-              class="material-symbols-outlined"
-            >
-              {{ icon }}
-            </span>
-            <span
-              v-else
-              :class="`pi ${icon}`"
-            />
-          <!-- </ClientOnly> -->
+        <span
+          v-if="iconType === 'material'"
+          class="material-symbols-outlined"
+        >
+          {{ icon }}
         </span>
+
+        <span
+          v-else
+          :class="`pi ${icon}`"
+        />
       </span>
 
       <!-- Label -->
-      <span class="flex-1 text-sm leading-tight">
+      <span class="flex-1 truncate">
         <slot />
       </span>
 
-      <!-- Badge (structure preserved) -->
+      <!-- Badge -->
       <span
-        v-show="badge"
-        class="shrink-0 py-0.5 px-2 rounded-full text-xs font-semibold transition-all"
-        :class="isExactActive
-          ? 'bg-emerald-200 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-200'
-          : 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300'"
+        v-if="badge"
+        class="
+          shrink-0 rounded-full
+          bg-slate-200 px-2 py-0.5
+          text-[10px] font-semibold
+          text-slate-600
+          dark:bg-slate-700 dark:text-slate-300
+        "
       >
         {{ badge }}
       </span>
-
     </a>
   </NuxtLink>
 </template>
-
-<style scoped>
-a {
-  @apply no-underline;
-}
-</style>

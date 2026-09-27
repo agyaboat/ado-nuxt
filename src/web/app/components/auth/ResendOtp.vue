@@ -32,7 +32,7 @@ const resend = async () => {
   loading.value = true
 
   try {
-    const response = await useAdoFetch().post('/auth/v2/resend-otp')
+    const response = await useAdoFetch().post('/auth/resend-otp')
 
     if (!response.ok) {
       const data = await response.json()

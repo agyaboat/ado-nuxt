@@ -1,6 +1,6 @@
 <script setup lang="ts">
   definePageMeta({
-    middleware: undefined,
+    // middleware: undefined,
     layout: 'dash-auth',
   })
 </script>

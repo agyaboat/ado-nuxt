@@ -4,35 +4,8 @@
  */
 
 export const controllers = {
-  admin: {
-    EduTools: () => import('#controllers/admin/edu_tools_controller'),
-  },
   Auth: () => import('#controllers/auth_controller'),
   AuthV2: () => import('#controllers/auth_v2_controller'),
-  dash: {
-    tools: {
-      Market: () => import('#controllers/dash/tools/market_controller'),
-      Runtime: () => import('#controllers/dash/tools/runtime_controller'),
-    },
-    Workspace: () => import('#controllers/dash/workspace_controller'),
-  },
-  edutools: {
-    feesManager: {
-      AcademicPeriods: () => import('#controllers/edutools/fees_manager/academic_periods_controller'),
-      AcademicYears: () => import('#controllers/edutools/fees_manager/academic_years_controller'),
-      Accesses: () => import('#controllers/edutools/fees_manager/accesses_controller'),
-      Arrears: () => import('#controllers/edutools/fees_manager/arrears_controller'),
-      Classes: () => import('#controllers/edutools/fees_manager/classes_controller'),
-      Dashboard: () => import('#controllers/edutools/fees_manager/dashboard_controller'),
-      FeeSchedules: () => import('#controllers/edutools/fees_manager/fee_schedules_controller'),
-      Payments: () => import('#controllers/edutools/fees_manager/payments_controller'),
-      Settings: () => import('#controllers/edutools/fees_manager/settings_controller'),
-      SetupWizards: () => import('#controllers/edutools/fees_manager/setup_wizards_controller'),
-      Some: () => import('#controllers/edutools/fees_manager/some'),
-      Students: () => import('#controllers/edutools/fees_manager/students_controller'),
-    },
-  },
   UserSettings: () => import('#controllers/user_settings_controller'),
-  Users: () => import('#controllers/users_controller'),
   Webs: () => import('#controllers/webs_controller'),
 }

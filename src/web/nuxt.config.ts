@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   css: ['@/assets/css/main.css', 'material-symbols/outlined.css'],
   app: {
     head: {
-      title: 'ScholarSaaS',
+      title: 'AdoNuxt',
       link: [
         {
           rel: 'preconnect',
@@ -56,53 +56,73 @@ export default defineNuxtConfig({
         },
       ],
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { charset: 'utf-8' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+        {
+          charset: 'utf-8',
+        },
 
         {
           name: 'description',
           content:
-            'ScholarSaaS is a modular education management platform for modern schools. Manage fees, students, classes, assessments, communication, and school workflows from one smart EduSuite.',
+            'A modern full-stack application template built with AdonisJS, Nuxt, Vue, and PrimeVue. Start building scalable web applications with a clean, production-ready foundation.',
         },
 
         {
-          property: 'og:title',
-          content: 'ScholarSaaS: Game Changer for Education',
-        },
-        {
-          property: 'og:description',
+          name: 'keywords',
           content:
-            'The Modular EduSuite for Modern Schools. Choose the tools your school needs, integrate seamlessly, and scale your education operations with confidence.',
+            'AdonisJS, Nuxt, Nuxt.js, Vue, PrimeVue, TypeScript, full-stack, web application, starter template, boilerplate',
         },
+
         {
-          property: 'og:image',
-          content: 'https://scholarsaas.com/scholarsaas-flyer.png',
+          name: 'author',
+          content: 'Agya Boat',
         },
-        {
-          property: 'og:url',
-          content: 'https://scholarsaas.com',
-        },
+
         {
           property: 'og:type',
           content: 'website',
         },
+        {
+          property: 'og:title',
+          content: 'AdoNuxt — AdonisJS + Nuxt + PrimeVue',
+        },
+        {
+          property: 'og:description',
+          content:
+            'A modern full-stack template combining AdonisJS, Nuxt, Vue, TypeScript, and PrimeVue for building scalable web applications.',
+        },
+        {
+          property: 'og:url',
+          content: 'https://github.com/agyaboat/ado-nuxt',
+        },
+        {
+          property: 'og:image',
+          content: 'https://github.com/agyaboat/ado-nuxt/raw/main/og-image.png',
+        },
+        {
+          property: 'og:site_name',
+          content: 'AdoNuxt',
+        },
 
         {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
           name: 'twitter:title',
-          content: 'ScholarSaaS: Game Changer for Education',
+          content: 'AdoNuxt — AdonisJS + Nuxt + PrimeVue',
         },
         {
           name: 'twitter:description',
           content:
-            'The Modular EduSuite for Modern Schools. Manage school operations module by module — smart, secure, and built to scale.',
+            'A modern full-stack template for building scalable applications with AdonisJS, Nuxt, Vue, TypeScript, and PrimeVue.',
         },
         {
           name: 'twitter:image',
-          content: 'https://scholarsaas.com/scholarsaas-flyer.png',
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image',
+          content: 'https://github.com/agyaboat/ado-nuxt/raw/main/og-image.png',
         },
       ],
     },

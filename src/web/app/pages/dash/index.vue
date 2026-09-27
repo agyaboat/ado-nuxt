@@ -1,53 +1,67 @@
 <script setup lang="ts">
-definePageMeta({
-  name: 'dash',
+const { user } = storeToRefs(useUserStore())
+
+const displayName = computed(() => {
+  if (user.value?.firstName || user.value?.lastName) {
+    return `${user.value?.firstName ?? ''} ${user.value?.lastName ?? ''}`.trim()
+  }
+
+  return 'there'
 })
 
-const store = useDashWorkspaceStore()
+const initials = computed(() => {
+  const first = user.value?.firstName?.charAt(0) ?? ''
+  const last = user.value?.lastName?.charAt(0) ?? ''
 
-onMounted(() => {
-  store.checkWorkspace()
+  return (first + last).toUpperCase() || '?'
 })
-
-function onAddTool() {
-  navigateTo('/dash/tools-explorer')
-}
 </script>
 
 <template>
-  <div class="px-3 py-6 lg:px-8">
-    <DashWorkspaceHeader @add="onAddTool" />
+  <div class="mx-auto max-w-5xl">
+    <!-- =====================================================
+         WELCOME
+         ===================================================== -->
+    <section>
+      <p class="text-sm font-medium text-surface-500">
+        Overview
+      </p>
 
-    <DashWorkspaceFilterBar
-      :search="store.search"
-      @update:search="store.setSearch"
-    />
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-0">
+        Welcome back, {{ displayName }}.
+      </h1>
 
-    <Message
-      v-if="store.fetchError"
-      severity="error"
-      :closable="false"
-      class="mb-6"
-    >
-      {{ store.fetchError }}
-    </Message>
+      <p class="mt-2 max-w-xl text-surface-500 dark:text-surface-400">
+        Your workspace is ready. Start building from here.
+      </p>
+    </section>
 
-    <Skeleton
-      v-if="store.loading"
-      height="18rem"
-    />
+    <!-- =====================================================
+         ACCOUNT
+         ===================================================== -->
+    <section class="mt-10">
+      <div
+        class="rounded-2xl border border-surface-200 bg-surface-0 p-6 dark:border-surface-800 dark:bg-surface-900"
+      >
+        <div class="flex items-center gap-4">
+          <Avatar
+            :label="initials"
+            shape="circle"
+            size="large"
+          />
 
-    <template v-else>
-      <DashWorkspaceStats :stats="store.stats" />
+          <div class="min-w-0">
+            <h2 class="font-semibold text-surface-900 dark:text-surface-0">
+              {{ displayName }}
+            </h2>
 
-      <DashWorkspaceGrid
-        :items="store.filteredItems"
-        @open=""
-      />
-
-      <DashWorkspaceEmptyState
-        v-if="store.filteredItems.length === 0"
-      />
-    </template>
+            <p class="mt-1 truncate text-sm text-surface-500">
+              {{ user?.email || 'No email address available' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
+```

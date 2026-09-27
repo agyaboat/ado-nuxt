@@ -39,7 +39,7 @@ const completeSetup = async () => {
   loading.value = true
 
   try {
-    const response = await useAdoFetch().post('/auth/v2/profile', {
+    const response = await useAdoFetch().post('/auth/profile', {
       body: JSON.stringify({
         firstName: form.firstName.trim(),
         lastName: form.lastName.trim(),

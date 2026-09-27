@@ -29,6 +29,7 @@ const redisConfig = defineConfig({
   },
 })
 
+//------------------UNCOMMENT THIS----------
 export default redisConfig
 
 declare module '@adonisjs/redis/types' {
