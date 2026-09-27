@@ -6,6 +6,7 @@ export interface User{
     phone: string;
     avatar?: string;
     profile: 'super' | 'staff' | 'client';
+    role: 'super' | 'staff' | 'client';
     isActive: boolean;
     citizenship?: string;
     emailVerifiedAt: string | null;
@@ -13,6 +14,7 @@ export interface User{
     idValue?: string;
     idUrl?: string;
     dob?: string;
+    passwordSet: boolean
 }
 
 export const useUserStore = defineStore('dash-user', ()=>{

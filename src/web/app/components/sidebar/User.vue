@@ -29,7 +29,8 @@
           <div>{{`${user?.firstName} ${user?.lastName}`}}</div>
         </slot>
         <slot name="tag">
-          <div class="text-xs text-primary" v-if="user?.emailVerifiedAt">Verified</div>
+          <div class="text-xs text-primary" v-if="tag">{{ tag }}</div>
+          <div class="text-xs text-primary" v-else-if="user?.emailVerifiedAt">Verified</div>
           <div class="text-xs text-cv-red" v-else>Not Verified</div>
         </slot>
       </div>

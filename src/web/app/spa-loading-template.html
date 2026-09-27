@@ -1,66 +1,419 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scholarsaas-loader-page">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdoNuxt Loader</title>
-    <style>
-        body{
-            padding: 0;
-            margin: 0;
-            width:100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: inherit;
-        }
-        .loader{
-            width: 25px !important;
-            height:25px !important;
-            border-radius: 50%;
-            border: 4px solid gold;
-            border-right: 4px solid transparent;
-            animation: roll 1s linear infinite;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        @keyframes roll {
-            to{
-                transform: rotate(360deg);
-            }
-        }
+  <title>ScholarSaaS</title>
 
-        .con1{
-            /* padding-left:10px; */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-        }
-        .loading{
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .logo-con{
-           width: 180px !important;
-        }
-        .img{
-            width: 100% !important;
-        }
-    </style>
+    :root {
+      --ss-bg: #f4f6fb;
+      --ss-card: #ffffff;
+      --ss-icon-bg: #f0f4ff;
+      --ss-text: #0f172a;
+      --ss-muted: #6b7a93;
+      --ss-muted-soft: #9aa3b2;
+      --ss-primary: #2d5bd9;
+      --ss-primary-dark: #1f45b8;
+      --ss-border: rgba(0, 0, 0, 0.08);
+      --ss-icon-border: rgba(45, 91, 217, 0.14);
+      --ss-progress-bg: rgba(0, 0, 0, 0.07);
+      --ss-idle-dot: rgba(0, 0, 0, 0.1);
+      --ss-ring: rgba(45, 91, 217, 0.18);
+      --ss-spinner-track: rgba(45, 91, 217, 0.14);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ss-bg: #0e1117;
+        --ss-card: #161b27;
+        --ss-icon-bg: #1a2236;
+        --ss-text: #f0f4ff;
+        --ss-muted: #8a95a8;
+        --ss-muted-soft: #6b7a93;
+        --ss-primary: #5b8ef0;
+        --ss-primary-dark: #3d6ee4;
+        --ss-border: rgba(255, 255, 255, 0.07);
+        --ss-icon-border: rgba(255, 255, 255, 0.08);
+        --ss-progress-bg: rgba(255, 255, 255, 0.06);
+        --ss-idle-dot: rgba(255, 255, 255, 0.1);
+        --ss-ring: rgba(61, 110, 228, 0.18);
+        --ss-spinner-track: rgba(91, 142, 240, 0.18);
+      }
+    }
+
+    html.dark {
+      --ss-bg: #0e1117;
+      --ss-card: #161b27;
+      --ss-icon-bg: #1a2236;
+      --ss-text: #f0f4ff;
+      --ss-muted: #8a95a8;
+      --ss-muted-soft: #6b7a93;
+      --ss-primary: #5b8ef0;
+      --ss-primary-dark: #3d6ee4;
+      --ss-border: rgba(255, 255, 255, 0.07);
+      --ss-icon-border: rgba(255, 255, 255, 0.08);
+      --ss-progress-bg: rgba(255, 255, 255, 0.06);
+      --ss-idle-dot: rgba(255, 255, 255, 0.1);
+      --ss-ring: rgba(61, 110, 228, 0.18);
+      --ss-spinner-track: rgba(91, 142, 240, 0.18);
+    }
+
+    html.light {
+      --ss-bg: #f4f6fb;
+      --ss-card: #ffffff;
+      --ss-icon-bg: #f0f4ff;
+      --ss-text: #0f172a;
+      --ss-muted: #6b7a93;
+      --ss-muted-soft: #9aa3b2;
+      --ss-primary: #2d5bd9;
+      --ss-primary-dark: #1f45b8;
+      --ss-border: rgba(0, 0, 0, 0.08);
+      --ss-icon-border: rgba(45, 91, 217, 0.14);
+      --ss-progress-bg: rgba(0, 0, 0, 0.07);
+      --ss-idle-dot: rgba(0, 0, 0, 0.1);
+      --ss-ring: rgba(45, 91, 217, 0.18);
+      --ss-spinner-track: rgba(45, 91, 217, 0.14);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ss-bg);
+      color: var(--ss-text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    .min-h-screen { min-height: 100vh; }
+    .w-screen { width: 100vw; }
+    .flex { display: flex; }
+    .grid { display: grid; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .place-items-center { place-items: center; }
+    .flex-col { flex-direction: column; }
+    .text-center { text-align: center; }
+    .relative { position: relative; }
+    .overflow-hidden { overflow: hidden; }
+    .rounded-full { border-radius: 9999px; }
+    .font-medium { font-weight: 500; }
+    .font-semibold { font-weight: 600; }
+
+    .card {
+      width: min(90vw, 340px);
+      padding: 36px 32px 30px;
+      border: 1px solid var(--ss-border);
+      border-radius: 20px;
+      background: var(--ss-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .brand-row {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--ss-icon-bg);
+      border: 1px solid var(--ss-icon-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-inner {
+      color: var(--ss-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-text {
+      text-align: center;
+    }
+
+    .app-name {
+      color: var(--ss-text);
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      color: var(--ss-muted);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 3px;
+    }
+
+    .progress-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .progress-bg {
+      width: 100%;
+      height: 3px;
+      background: var(--ss-progress-bg);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: var(--ss-primary-dark);
+      border-radius: 999px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .steps {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .step-dot.done {
+      background: var(--ss-primary-dark);
+    }
+
+    .step-dot.active {
+      background: var(--ss-primary-dark);
+      box-shadow: 0 0 0 3px var(--ss-ring);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .step-dot.idle {
+      background: var(--ss-idle-dot);
+    }
+
+    .step-label {
+      color: var(--ss-muted);
+      font-size: 12.5px;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+
+    .step-label.active {
+      color: var(--ss-text);
+      font-weight: 500;
+    }
+
+    .sync-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      color: var(--ss-muted-soft);
+      font-size: 11.5px;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-top: -2px;
+    }
+
+    .bottom-spinner {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 2px solid var(--ss-spinner-track);
+      border-top-color: var(--ss-primary);
+      animation: spin 0.85s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 3px var(--ss-ring);
+      }
+
+      50% {
+        box-shadow: 0 0 0 5px rgba(45, 91, 217, 0.08);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="con1">
-        <div class="logo-con">
-            <img alt="CrownVote" class="img" src="/loader.png" />
+  <main class="min-h-screen w-screen flex items-center justify-center">
+    <section class="card" role="main" aria-label="ScholarSaaS loading screen">
+      <div class="brand-row">
+        <div class="brand-icon" aria-hidden="true">
+          <div class="icon-inner">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="4" y="6" width="14" height="18" rx="2.5" fill="currentColor" opacity="0.18" />
+              <rect x="6" y="4" width="14" height="18" rx="2.5" fill="currentColor" opacity="0.32" />
+              <rect x="8" y="2" width="14" height="18" rx="2.5" fill="currentColor" />
+              <line x1="11.5" y1="7" x2="19" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="11.5" y1="10.5" x2="19" y2="10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="11.5" y1="14" x2="16" y2="14" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              <circle cx="22" cy="22" r="6" fill="white" opacity="0.95" />
+              <path
+                d="M19.5 22L21.2 23.8L24.5 20.5"
+                stroke="#2d5bd9"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-        <div class="loading">
-            <div class="loader"></div>
-            <div>loading...</div>
+
+        <div class="brand-text">
+          <div class="app-name">ScholarSaaS</div>
+          <div class="tagline">Your connected school operating space</div>
         </div>
-    </div>  
+      </div>
+
+      <div class="progress-section">
+        <div
+          class="progress-bg"
+          role="progressbar"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          id="prog-track"
+        >
+          <div class="progress-bar" id="prog-bar"></div>
+        </div>
+      </div>
+
+      <div class="steps" aria-live="polite" id="steps-list">
+        <div class="step">
+          <div class="step-dot active" id="dot-0"></div>
+          <span class="step-label active" id="lbl-0">Opening workspace</span>
+        </div>
+
+        <div class="step">
+          <div class="step-dot idle" id="dot-1"></div>
+          <span class="step-label" id="lbl-1">Loading subscribed tools</span>
+        </div>
+
+        <div class="step">
+          <div class="step-dot idle" id="dot-2"></div>
+          <span class="step-label" id="lbl-2">Syncing school data</span>
+        </div>
+
+        <div class="step">
+          <div class="step-dot idle" id="dot-3"></div>
+          <span class="step-label" id="lbl-3">Preparing dashboard</span>
+        </div>
+      </div>
+
+      <div class="sync-footer" aria-live="polite">
+        <span class="bottom-spinner" aria-hidden="true"></span>
+        <span>Workspace syncing securely</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const steps = [
+      { pct: 18 },
+      { pct: 48 },
+      { pct: 76 },
+      { pct: 100 }
+    ];
+
+    const delays = [0, 1400, 2600, 3800];
+
+    const bar = document.getElementById('prog-bar');
+    const track = document.getElementById('prog-track');
+
+    function setStep(i) {
+      for (let j = 0; j < steps.length; j++) {
+        const dot = document.getElementById('dot-' + j);
+        const lbl = document.getElementById('lbl-' + j);
+
+        if (j < i) {
+          dot.className = 'step-dot done';
+          lbl.className = 'step-label';
+        } else if (j === i) {
+          dot.className = 'step-dot active';
+          lbl.className = 'step-label active';
+        } else {
+          dot.className = 'step-dot idle';
+          lbl.className = 'step-label';
+        }
+      }
+
+      bar.style.width = steps[i].pct + '%';
+      track.setAttribute('aria-valuenow', steps[i].pct);
+    }
+
+    delays.forEach((delay, index) => {
+      setTimeout(() => setStep(index), delay);
+    });
+  </script>
 </body>
 </html>

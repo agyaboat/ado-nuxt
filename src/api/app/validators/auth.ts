@@ -7,11 +7,9 @@ export const loginValidator = vine.compile(
   })
 )
 
-export const registerValidator = vine.compile(
-  vine.object({
-    first_name: vine.string().trim().minLength(2).maxLength(100),
-    last_name: vine.string().trim().minLength(2).maxLength(100),
-    email: vine.string().email().unique({ table: 'users', column: 'email' }),
-    password: vine.string().minLength(5),
-  })
-)
+export const registerValidator = vine.create({
+  first_name: vine.string().trim().minLength(2).maxLength(100),
+  last_name: vine.string().trim().minLength(2).maxLength(100),
+  email: vine.string().email().unique({ table: 'users', column: 'email' }),
+  password: vine.string().minLength(5),
+})

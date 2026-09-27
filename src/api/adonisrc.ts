@@ -32,7 +32,8 @@ export default defineConfig({
     () => import('@adonisjs/lucid/commands'),
     () => import('@adonisjs/cache/commands'),
     () => import('@adonisjs/mail/commands'),
-    () => import('@adonisjs/bouncer/commands')
+    () => import('@adonisjs/bouncer/commands'),
+    () => import('@adonisjs/queue/commands')
   ],
 
   /*
@@ -64,7 +65,10 @@ export default defineConfig({
     () => import('@adonisjs/drive/drive_provider'),
     () => import('@adonisjs/mail/mail_provider'),
     () => import('@adonisjs/ally/ally_provider'),
-    () => import('@adonisjs/bouncer/bouncer_provider')
+    () => import('@adonisjs/bouncer/bouncer_provider'),
+    () => import('@adonisjs/redis/redis_provider'),
+    () => import('@adonisjs/queue/queue_provider'),
+    () => import('@adonisjs/lock/lock_provider')
   ],
 
   /*
@@ -75,7 +79,10 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/socket'), () => import('#start/api_routes'), () => import('#start/routes_auth')],
+  preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/socket'), () => import('#start/api_routes'), () => import('#start/routes_auth'), () => import('#start/admin_routes'), () => import('#start/dash_tool'), () => import('#start/dash_edutools_routes'), () => import('#start/dash'), () => import('#start/dash_workspace_route'), () => import('#start/routes/edutools/fees_manager'), {
+    file: () => import('#start/scheduler'),
+    environment: ['web'],
+  }, () => import('#start/routes/auth_v_2')],
 
   /*
   |--------------------------------------------------------------------------

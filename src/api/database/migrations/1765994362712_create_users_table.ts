@@ -7,21 +7,35 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
       table.uuid('user_id').notNullable().unique()
-      table.string('first_name').notNullable()
+
+      table.string('first_name').nullable()
       table.string('last_name').nullable()
       table.string('middle_name').nullable()
+
+      table.string('username').unique().nullable()
+
       table.string('email').unique().notNullable()
       table.timestamp('email_verified_at', { useTz: true }).nullable()
+
       table.string('password').notNullable()
-      table.string('phone').nullable().unique().comment('with country code')
-      table.string('citizenship').nullable().defaultTo('GH')
-      table.string('national_id_url').nullable() //path to uploaded id
-      table.timestamp('citizenship_verified_at').nullable()
-      table.string('avatar_path').nullable()
+
+      table.string('phone').nullable().unique().comment('normalized international format')
+      table.json('other_phones')
+
+      table.string('country').nullable().defaultTo('GH')
+      // table.string('national_id_url').nullable() //path to uploaded id
+      // table.timestamp('citizenship_verified_at').nullable()
+      table.json('nationality_details')
+
+      table.json('profile_picture').nullable()
       table.date('dob').nullable()
-      table.enum('status', ['active', 'pending', 'inactive', 'banned']).defaultTo('active')
+
+      // ['active', 'pending', 'inactive', 'banned']
+      table.string('status').defaultTo('active')
+      table.json('configs').nullable()
+
       table.timestamp('deleted_at').nullable()
-      table.enum('role', ['user', 'admin', 'super']).defaultTo('user')
+      table.string('role').defaultTo('user')
       table.timestamps()
     })
   }

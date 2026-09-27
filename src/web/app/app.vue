@@ -2,6 +2,8 @@
   <div>
     <Toast />
     <NuxtLoadingIndicator />
+    <ConfirmDialog />
+    <!-- <ConfirmPopup /> -->
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

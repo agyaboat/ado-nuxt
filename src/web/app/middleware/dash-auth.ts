@@ -1,9 +1,7 @@
-import { fetchAuthUser } from "~/composables/services/auth"
-// import { useUserStore } from "~/stores/dash.user"
+// import { fetchAuthUser } from '~/composables/services/auth'
+// import type { User } from '~/stores/dash.user'
 
-// middleware/dashboard.global.ts
-export default defineNuxtRouteMiddleware(async (to, from) => {
-  const tfp = to.fullPath ?? '/'
+export default defineNuxtRouteMiddleware(async (to) => {
   const userStore = useUserStore()
   const toast = useToast()
 
@@ -11,50 +9,72 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const now = Date.now()
 
   /**
-   * 1. Store has a user
+   * User exists in store and the cached
+   * authentication state is still fresh.
    */
-  if (userStore.user) {
-    const lastChecked = userStore.lastCheckedAt ?? 0
-    const isStale = now - lastChecked > THIRTY_MINUTES
-
-    if (!isStale) return true
-
-    const freshUser = await fetchAuthUser()
-    if( freshUser === 401 ) {
-      userStore.clearUser()
-      return navigateTo('/auth')
-    }else if( freshUser === 'error' || freshUser === 'net-error' ){
-      // do nothing, keep old user
-      toast.add({
-        summary: 'Network Error',
-        detail: 'Failed to fetch user data.',
-        severity: 'danger'
-      })
-      return abortNavigation()
-    }
-
-    if (freshUser.email !== userStore.user.email) {
-      userStore.clearUser()
-      return navigateTo(tfp, {external: true})
-    }
-    userStore.setUser(freshUser)
+  if (
+    userStore.user &&
+    userStore.lastCheckedAt &&
+    now - userStore.lastCheckedAt < THIRTY_MINUTES
+  ) {
+    return
   }
 
   /**
-   * 2. Store empty → try hydrate
+   * Store is empty or stale.
+   * Ask the backend for the authenticated user.
    */
-    const freshUser = await fetchAuthUser()
-    if( freshUser === 401 ) {
-        userStore.clearUser()
-        return navigateTo('/auth')
-    }else if( freshUser === 'error' || freshUser === 'net-error' ){
-        // do nothing, keep old user
-        toast.add({
-        summary: 'Network Error',
-        detail: 'Failed to fetch user data.',
-        severity: 'danger'
-        })
-        return abortNavigation()
+  userStore.loading = true
+
+  try {
+    const user = await fetchAuthUser()
+
+    if (user === 401) {
+      userStore.clearUser()
+
+      return navigateTo('/auth')
     }
-    userStore.setUser(freshUser)
+
+    else if (user === 'error') {
+      toast.add({
+        summary: 'Unable to verify session',
+        detail: 'We could not verify your session. Please try again.',
+        severity: 'error',
+      })
+
+      return abortNavigation()
+    }
+
+    userStore.setUser(user)
+
+    return
+  } catch (error) {
+    console.error('Auth middleware error:', error)
+
+    toast.add({
+      summary: 'Network Error',
+      detail: 'Failed to verify your session.',
+      severity: 'error',
+    })
+
+    return abortNavigation()
+  } finally {
+    userStore.loading = false
+  }
 })
+
+export const fetchAuthUser = async () => {
+  const response = await useAdoFetch().get('/auth/v2/user')
+
+  if (response.status === 401) {
+    return 401
+  }
+
+  if (!response.ok) {
+    return 'error'
+  }
+
+  const data = await response.json()
+
+  return data.user as User
+}

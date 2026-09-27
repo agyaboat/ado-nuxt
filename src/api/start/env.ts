@@ -23,8 +23,8 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring session package
   |----------------------------------------------------------
   */
-  // SESSION_DRIVER: Env.schema.enum(['cookie', 'memory', 'redis'] as const),
-  SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),
+  SESSION_DRIVER: Env.schema.enum(['cookie', 'memory', 'redis'] as const),
+  // SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),
 
   /*
   |----------------------------------------------------------
@@ -48,7 +48,7 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring the drive package
   |----------------------------------------------------------
   */
-  DRIVE_DISK: Env.schema.enum(['fs'] as const),
+  DRIVE_DISK: Env.schema.enum(['fs', 'r2'] as const),
   IMG_BASE: Env.schema.string(),
 
   /*
@@ -70,5 +70,35 @@ export default await Env.create(new URL('../', import.meta.url), {
   |----------------------------------------------------------
   */
   GITHUB_CLIENT_ID: Env.schema.string(),
-  GITHUB_CLIENT_SECRET: Env.schema.string()
+  GITHUB_CLIENT_SECRET: Env.schema.string(),
+
+  SUPER_EMAIL: Env.schema.string(),
+
+  SUPER_FIRST_NAME: Env.schema.string(),
+
+  SUPER_LAST_NAME: Env.schema.string(),
+
+  SUPER_PASSWORD: Env.schema.string(),
+
+  CDN_URL: Env.schema.string(),
+  R2_KEY: Env.schema.string(),
+  R2_SECRET: Env.schema.string(),
+  R2_BUCKET: Env.schema.string(),
+  R2_ENDPOINT: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring @adonisjs/queue
+  |----------------------------------------------------------
+  */
+  QUEUE_DRIVER: Env.schema.enum(['redis', 'database', 'sync'] as const),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the lock package
+  |----------------------------------------------------------
+  */
+  LOCK_STORE: Env.schema.enum(['redis', 'memory'] as const),
+
+  ARKESEL_SMS_KEY: Env.schema.string()
 })

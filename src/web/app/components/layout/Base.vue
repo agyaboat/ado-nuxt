@@ -1,9 +1,9 @@
 <script setup lang="ts">
   useHead({
-    title: 'CrownVote',
+    title: APP_NAME,
   })
 
-  const props = defineProps<{user?:boolean, colorMode?:boolean, brand?:'off'|string}>()
+  const props = defineProps<{user?:boolean, colorMode?:boolean, brand?:'off'|string }>()
 
   const sidebar = useTemplateRef('sidebar')
 
@@ -56,7 +56,9 @@
           <slot name="brand">
             <div v-if="brand !== 'off'" class="flex justify-between items-center">
               <NuxtLink to="/" class="flex gap-1 items-center font-bold text-xl">
-                <span class="material-symbols-outlined text-amber-500 dark:text-amber-300 font-black! text-3xl!">crown</span>
+                <slot name="headerIcon">
+                  <span class="material-symbols-outlined text-amber-500 dark:text-amber-300 font-black! text-3xl!">school</span>
+                </slot>
                 <div class="hidden md:block">{{useTruncate(brand) ?? APP_NAME}}</div>
               </NuxtLink>
             </div>

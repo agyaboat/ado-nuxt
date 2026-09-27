@@ -6,12 +6,22 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.uuid('id').primary()
-      table.string('loggable_type').nullable()
+
+      table.string('loggable_type', 50).nullable()
       table.uuid('loggable_id').nullable()
+
       table.uuid('user_id').nullable().references('user_id').inTable('users').onDelete('SET NULL')
+
       table.text('action').notNullable()
+
       table.json('meta').nullable()
-      table.timestamps(true)
+
+      table.timestamp('created_at').notNullable()
+
+      table.index(['loggable_type', 'loggable_id'])
+      table.index(['user_id'])
+      table.index(['action'])
+      table.index(['created_at'])
     })
   }
 

@@ -11,6 +11,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
     "@paystack/inline-js": "^2.22.7",
     "@pinia/nuxt": "0.11.3",
     "@primeuix/themes": "^2.0.2",
@@ -19,6 +21,8 @@
     "browser-image-compression": "^2.0.2",
     "chart.js": "^4.5.1",
     "dayjs": "^1.11.19",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
     "lara-fetch": "^1.0.5",
     "luxon": "^3.7.2",
     "material-symbols": "^0.40.2",
@@ -35,6 +39,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.2",
     "@nuxtjs/pwa": "^3.3.5",
     "@primevue/nuxt-module": "^4.5.4",
     "@types/luxon": "^3.7.1",
